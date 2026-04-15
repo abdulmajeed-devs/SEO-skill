@@ -1,0 +1,37 @@
+{
+  "name": "SEO-AUD-V1",
+  "version": "1.0.0",
+  "entry": "main.py",
+  "description": "Modular SEO auditor for website technical, on-page, performance, structured data, content, and indexing checks with JSON-first outputs.",
+  "runtime": {
+    "language": "python",
+    "min_version": "3.12"
+  },
+  "inputs": {
+    "url": {
+      "type": "string",
+      "required": false,
+      "description": "Single URL to audit."
+    },
+    "urls_file": {
+      "type": "string",
+      "required": false,
+      "description": "Path to file containing one URL per line."
+    },
+    "keyword": {
+      "type": "string",
+      "required": false,
+      "description": "Target keyword for URL keyword relevance checks."
+    }
+  },
+  "outputs": {
+    "console": "Each module prints structured JSON stage output.",
+    "json_report": "Per-URL JSON file in output directory.",
+    "doc_report": "DOCX report if --doc flag is provided."
+  },
+  "commands": {
+    "single_url": "python main.py --url https://example.com --keyword seo --output-dir audit_output",
+    "multi_url": "python main.py --urls-file urls.txt --output-dir audit_output",
+    "with_doc": "python main.py --url https://example.com --doc --google-docs --output-dir audit_output"
+  }
+}
